@@ -1,0 +1,15 @@
+# CMake build output
+/build/
+/cmake-build-*/
+
+# IDE metadata
+.vs/
+**/.vs/
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Compiled objects and executables
+*.o
+*.out
