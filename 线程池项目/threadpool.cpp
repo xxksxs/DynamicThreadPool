@@ -104,7 +104,7 @@ void ThreadPool::start(int initThreadSize)
 	// 先构造全部线程对象，保证启动前线程容器已经完整。
 	for (int i = 0; i < initThreadSize_; i++)
 	{
-		auto ptr = std::make_unique<Thread>(std::bind(&ThreadPool::threadFunc, this, std::placeholders::_1));
+		auto ptr = std::make_unique<Thread>([this](int threadid) {threadFunc(threadid);});
 		int threadId = ptr->getId();
 		threads_.emplace(threadId, std::move(ptr));
 	}
